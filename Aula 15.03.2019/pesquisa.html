@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pesquisa</title>
+
+    <link href="estilo.css" type="text/css" rel="stylesheet"/>
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+    <script type="text/javascript" src="rhalf.js"></script>
+
+</head>
+<body>
+
+<header>
+    <p>Escola Saberes</p>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pesquisa.html">Sobre</a></li>
+            <li><a href="#">Projetos</a></li>
+            <li><a href="#">Imagens</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div>
+    <form id="tabela" action="RhalfTeste" method="post">
+        <fieldset>
+            <legend>Como ficou sabendo do nosso site</legend>
+            <ul>
+                <li>
+                    <input type="radio" id="radio-1" checked>
+                    <label for="radio-1">Através de Amigos</label>
+                </li>
+                <li>
+                    <input type="radio" id="radio-2">
+                    <label for="radio-2">Através de de Anuncios</label>
+                </li>
+                <li>
+                    <input type="radio" id="radio-3">
+                    <label for="radio-3">Propaganda em TV</label>
+                </li>
+                <li>
+                    <input type="radio" id="radio-4">
+                    <label for="radio-4">Outros (Especifique)</label></br></br>
+                </li></br>
+                <textarea name="Comentario" cols="40" placeholder="Escreva sua Resposta"></textarea>
+            </ul>
+        </fieldset>
+        </br></br>
+        <fieldset>
+            <legend>O quanto você entende sobre cultura Maker</legend>
+            <input onclick="calcularRange()" id="rangeId" type="range" min="0"  max="100">
+            <label id="totalFeedBack">50%</label>
+        </fieldset>
+        </br></br>
+        <fieldset>
+            <legend>Dados do Usuário</legend>
+            <label for="nomeUsuario">Digite seu Nome:</label>
+            <input id="nomeUsuario" type="text" placeholder="Digite seu Nome" maxlength="20"></br>
+            <label>Informe sua idade:</label>
+            <input type="date"></br>
+            <label>Tem vontade de saber mais sobre Cultura Maker</label></br>
+            <label>Sim</label>
+            <input type="checkbox">
+            <label>Não</label>
+            <input type="checkbox"></br>
+            <label>Digite seu Email:</label>
+            <input type="email">
+        </fieldset>
+        <button id="Button" type="button">Enviar</button>
+    </form>
+    <img id="imgCritividade" src="imagens/120774_Papel-de-Parede-Criatividade_1920x12001.jpg">
+</div>
+<footer id="footerPesquisa">
+    <h1>Desenvolvido por Rhalf Souza</h1>
+</footer>
+
+</body>
+</html>

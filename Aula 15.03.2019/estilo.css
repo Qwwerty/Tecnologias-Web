@@ -1,5 +1,4 @@
 *{
-    border: 0px;
     margin: 0px;
     padding: 0px;
 }
@@ -91,6 +90,68 @@ footer{
     background-color: #FFC300;
     width: 100%;
     height: 100px;
-    position: relative;
-    top: 1200px;
+    position: absolute;
+    top: 2200px;
+}
+
+footer h1{
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    font-size: 50px;
+}
+
+#tabela{
+    font-size: 24px;
+    margin: 0 auto;
+    margin-top: 80px;
+    width:50%;
+}
+
+#tabela{
+    text-decoration: none;
+}
+
+#tabela ul{
+    list-style-type: none;
+}
+
+input[type=radio]:hover{
+    width: 30%;
+    height: 2em;
+    transition-delay:0.1s;
+}
+
+#tabela fieldset{
+    padding-top: 20px;
+}
+
+#tabela ul li{
+    background-color: #FFC300;
+    width: 100%;
+    margin-top: 10px;
+    height: 40px;
+}
+
+#tabela ul li:hover{
+    background-color: black;
+    color: white;
+}
+
+#imgCritividade{
+    width: 100%;
+    margin-top: 140px;
+}
+
+#footerPesquisa {
+    position: absolute;
+    top: 1900px;
+}
+
+#Button{
+    height: 80px;
+    width: 100px;
+}
+
+#Button:hover{
+    background-color: #e4f446;
 }
