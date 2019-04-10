@@ -63,13 +63,22 @@ header{
     .ofertas{
         display: flex;
         flex-wrap: wrap;
-        align-items: flex-stretch;
-        margin-left: 20px;
+        margin-right: 12px;
         margin-top: 5px;
     }
 
     .imgOfertas img {
         width: 19rem;
+    }
+
+}
+
+@media (max-width: 593px){
+
+    .ofertas{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 
 }
