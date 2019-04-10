@@ -71,6 +71,15 @@ header{
         width: 19rem;
     }
 
+    .botaoShop{
+        display: none;
+    }
+
+    .botaoFavorito{
+        display: none;
+    }
+
+
 }
 
 @media (max-width: 593px){
@@ -81,5 +90,220 @@ header{
         justify-content: space-around;
     }
 
+    .botaoShop{
+        display: none;
+    }
+
+    .botaoFavorito{
+        display: none;
+    }
+
+
 }
+
+
+@media (max-width: 385px){
+
+    .ofertas{
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 12px;
+        margin-top: 5px;
+    }
+
+    .imgOfertas img {
+        width: 19rem;
+    }
+
+    .botaoShop{
+        display: none;
+    }
+
+    .botaoFavorito{
+        display: none;
+    }
+
+
+}
+
+@media (max-width: 320px){
+
+    .pesquisaLogo{
+        display: flex;
+        flex-direction: column;
+        font-family: 'Merienda', cursive;
+        font-size: 15px;
+        width: 50%;
+    }
+    
+    .pesquisa{
+        margin-top: 25px;
+        margin-right: 40px;
+    }
+    
+    .pesquisa input{
+        width: 200px;
+        border-radius: 5px; 
+    }
+    
+    .botaoResponsivo{
+        margin-top: 60px;
+        margin-right: 20px;
+        font-size: 30px;
+    }
+
+    .botaoShop{
+        display: none;
+    }
+
+    .botaoFavorito{
+        display: none;
+    }
+
+    
+}
+
+@media (min-width: 701px) and (max-width: 772px){
+
+    .ofertas{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .imgOfertas img {
+        width: 19rem;
+        margin-left: 42px;
+    }
+
+    .botaoShop{
+        display: none;
+    }
+
+    .botaoFavorito{
+        display: none;
+    }
+
+
+}
+
+@media (min-width: 778px){
+
+    .pesquisaLogo{
+        display: flex;
+        flex-direction: column;
+        font-family: 'Merienda', cursive;
+        font-size: 25px;
+        text-align: center;
+    }
+    
+    .pesquisa{
+        margin-top: 25px;
+        margin-right: 20px;
+    }
+    
+    .pesquisa input{
+        width: 600px;
+        height: 35px;
+        border-radius: 5px; 
+    }
+    
+    .botaoResponsivo{
+        display: none;
+    }
+
+    .botaoShop{
+        margin-top: 35px;
+        margin-right: 20px;
+        font-size: 35px;
+    }
+
+    .botaoFavorito{
+        margin-top: 35px;
+        margin-right: 20px;
+        font-size: 35px;
+    }
+
+}
+
+@media (min-width: 701px) and (max-width: 772px){
+
+    .ofertas{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .imgOfertas img {
+        width: 19rem;
+        margin-left: 42px;
+    }
+
+}
+
+@media (min-width: 778px){
+
+    .pesquisaLogo{
+        display: flex;
+        flex-direction: column;
+        font-family: 'Merienda', cursive;
+        font-size: 25px;
+        text-align: center;
+    }
+    
+    .pesquisa{
+        margin-top: 25px;
+        margin-right: 20px;
+    }
+    
+    .pesquisa input{
+        width: 600px;
+        height: 35px;
+        border-radius: 5px; 
+    }
+    
+    .botaoResponsivo{
+        display: none;
+    }
+
+    .botaoShop{
+        margin-top: 35px;
+        margin-right: 20px;
+        font-size: 35px;
+    }
+
+    .botaoFavorito{
+        margin-top: 35px;
+        margin-right: 20px;
+        font-size: 35px;
+    }
+
+}
+
+@media (min-width: 594px) and (max-width: 700px){
+
+    .botaoShop{
+        display: none;
+    }
+
+    .botaoFavorito{
+        display: none;
+    }
+
+}
+
+@media (min-width: 773px) and (max-width: 777px){
+
+    .botaoShop{
+        display: none;
+    }
+
+    .botaoFavorito{
+        display: none;
+    }
+
+}
+
+
+
 
