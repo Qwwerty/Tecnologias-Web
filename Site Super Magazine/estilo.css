@@ -47,11 +47,18 @@ header{
 .ofertas{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .imgOfertas img {
     width: 11.5rem;
     margin-left: 10px;
+}
+
+.video{
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
 }
 
 
@@ -214,13 +221,11 @@ header{
 
     .botaoShop{
         margin-top: 35px;
-        margin-right: 20px;
         font-size: 35px;
     }
 
     .botaoFavorito{
         margin-top: 35px;
-        margin-right: 20px;
         font-size: 35px;
     }
 
@@ -241,7 +246,7 @@ header{
 
 }
 
-@media (min-width: 778px){
+@media (min-width: 778px) and (max-width: 799px){ 
 
     .pesquisaLogo{
         display: flex;
@@ -268,13 +273,11 @@ header{
 
     .botaoShop{
         margin-top: 35px;
-        margin-right: 20px;
         font-size: 35px;
     }
 
     .botaoFavorito{
         margin-top: 35px;
-        margin-right: 20px;
         font-size: 35px;
     }
 
@@ -290,6 +293,11 @@ header{
         display: none;
     }
 
+    .imgOfertas img {
+        width: 16rem;
+        margin-left: 30px;
+        align-items: center;
+    }
 }
 
 @media (min-width: 773px) and (max-width: 777px){
@@ -303,6 +311,39 @@ header{
     }
 
 }
+
+@media (min-width: 791px) and (max-width: 801px){
+
+    .imgOfertas img {
+        width: 22rem;
+        margin-left: 30px;
+    }
+
+
+}
+
+@media (min-width: 597px) and (max-width: 603px){
+    .imgOfertas img {
+        width: 16rem;
+        margin-left: 30px;
+    }
+}
+
+
+@media (min-width: 667) and (max-width: 795px){
+    .imgOfertas img {
+        width: 22rem;
+        margin-left: 30px;
+    }
+}
+
+
+@media (min-width: 806px) and (max-width: 1500px){
+    .imgOfertas img {
+        width: 100%;
+    }
+}
+
 
 
 
