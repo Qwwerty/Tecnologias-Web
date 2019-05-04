@@ -38,13 +38,25 @@ header .botaoMobile a{
 }
 
 .jogar{
+    margin-top: 28px; 
     display: flex;
     justify-content: center;
     font-family: 'Modak', cursive;
+    align-items: center;
+
 }
 
-.jogar a{
-    margin-top: 50px;
-    color: black;
+.jogar h3{
     font-size: 36px;
+}
+
+.jogar h3:hover{
+    background-color: #D90404;
+    color: #fff;
+}
+
+
+.jogar a{
+    color: black;
+    font-size: 60px;
 }
