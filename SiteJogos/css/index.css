@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+
 /*Cabeçalho do site*/
 header{
     background-color: #D90404;
@@ -24,4 +25,22 @@ header #imgLogo img{
 
 header .botaoMobile a{
     margin-right: 20px;
+}
+
+.imgDiversao img{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.jogar{
+    display: flex;
+    justify-content: center;
+    font-family: 'Modak', cursive;
+}
+
+.jogar a{
+    margin-top: 20px;
+    color: black;
+    font-size: 36px;
 }
