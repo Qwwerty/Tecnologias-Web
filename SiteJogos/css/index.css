@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: #F2EDD5;
+}
+
 
 /*Cabeçalho do site*/
 header{
@@ -40,7 +44,7 @@ header .botaoMobile a{
 }
 
 .jogar a{
-    margin-top: 20px;
+    margin-top: 50px;
     color: black;
     font-size: 36px;
 }
