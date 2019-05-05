@@ -1,29 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Venha Brincar</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/index.css">
 
-    <!--Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Modak" rel="stylesheet">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/index.css">
 
     <!--Font Awesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
 
 </head>
+
 <body>
-    
-    <header>
-        <div id="imgLogo">
-            <img width="100px" src="../images/d00f8235-cc94-473f-8e36-f76cfa26a76c.png">
+
+    <!-- Simulate a smartphone / tablet -->
+    <div class="mobile-container">
+
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a href="#home" class="active"><img src="../images/d00f8235-cc94-473f-8e36-f76cfa26a76c.png"></a>
+            <div id="myLinks">
+                <a href="#news">Home</a>
+                <a href="#contact">Sobre</a>
+                <a href="#about">Jogos</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
         </div>
-        <div class="botaoMobile">
-            <a><i class="fas fa-align-justify"></i></a>
+
+        <div class="conteudo">
+
         </div>
-    </header>
+
+        <!-- End smartphone / tablet look -->
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+
 </body>
+
 </html>
