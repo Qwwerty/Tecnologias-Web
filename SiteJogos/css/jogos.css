@@ -5,13 +5,13 @@
     box-sizing: border-box;
 }
 
-.conteudo{
+#conteudo{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.conteudo .jogo{
+#conteudo .jogo{
     width: 160px;
     height: 160px;
     margin-top: 30px;
@@ -20,8 +20,6 @@
     display: flex;
 }
 
-.conteudo .jogo img{
+#conteudo .jogo img{
     width: 100%;
 }
-
-
