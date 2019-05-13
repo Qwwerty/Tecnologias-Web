@@ -57,61 +57,97 @@ function carregar(pagina, escolha) {
 
 
 
-//Variavel global de escolha
+//Variavel global de escolha para saber se o jogador quer jogar com X ou O
 var _escolha;
+//Para controle para que quando der 8 jogadas a máquina não jogue a decima vezes
+//Sabendo que tem só 9 jogdas.
 var cont = 0;
 
-
+//Pega a escolha do usuário 
 function globalEscolha(x) {
 	this._escolha = x;
 }
 
-
+//Faz todo controle das jogadas tantas do usuário como a máquina
 function jogar(posicao) {
 
+	//Pega os 9 campos ontem o usuário ou máquina pode jogar
 	var campo = document.getElementsByClassName("campo");
 
-	if (cont < 9) {
-
+	//Se o cont for menor que 8 o usuário pode jogar e a máquina também pode fazer sua jogada
+	if (cont < 8) {
+		//Se a posição for a x1 insere a joga do usuário
 		if (posicao === 'x1' && campo[0].innerHTML === '') {
 			campo[0].innerHTML = _escolha;
-		} else if (posicao === 'x2' && campo[1].innerHTML === '') {
+		}
+		//Se a posição for a x2 insere a joga do usuário 
+		else if (posicao === 'x2' && campo[1].innerHTML === '') {
 			campo[1].innerHTML = _escolha;
-		} else if (posicao === 'x3' && campo[2].innerHTML === '') {
+		} 
+		//Se a posição for a x3 insere a joga do usuário
+		else if (posicao === 'x3' && campo[2].innerHTML === '') {
 			campo[2].innerHTML = _escolha;
-		} else if (posicao === 'x4' && campo[3].innerHTML === '') {
+		} 
+		//Se a posição for a x4 insere a joga do usuário
+		else if (posicao === 'x4' && campo[3].innerHTML === '') {
 			campo[3].innerHTML = _escolha;
-		} else if (posicao === 'x5' && campo[4].innerHTML === '') {
+		}
+		//Se a posição for a x5 insere a joga do usuário
+		else if (posicao === 'x5' && campo[4].innerHTML === '') {
 			campo[4].innerHTML = _escolha;
-		} else if (posicao === 'x6' && campo[5].innerHTML === '') {
+		} 
+		//Se a posição for a x6 insere a joga do usuário
+		else if (posicao === 'x6' && campo[5].innerHTML === '') {
 			campo[5].innerHTML = _escolha;
-		} else if (posicao === 'x7' && campo[6].innerHTML === '') {
+		} 
+		//Se a posição for a x7 insere a joga do usuário
+		else if (posicao === 'x7' && campo[6].innerHTML === '') {
 			campo[6].innerHTML = _escolha;
-		} else if (posicao === 'x8' && campo[7].innerHTML === '') {
+		}
+		//Se a posição for a x8 insere a joga do usuário
+		else if (posicao === 'x8' && campo[7].innerHTML === '') {
 			campo[7].innerHTML = _escolha;
-		} else if (posicao === 'x9' && campo[8].innerHTML === '') {
+		} 
+		//Se a posição for a x9 insere a joga do usuário
+		else if (posicao === 'x9' && campo[8].innerHTML === '') {
 			campo[8].innerHTML = _escolha;
 		}
 		sorteiaPosicao();
-	}
-	else{
+	} else {
+		//Se a posição for a x1 insere a jogada da máquima
 		if (posicao === 'x1' && campo[0].innerHTML === '') {
 			campo[0].innerHTML = _escolha;
-		} else if (posicao === 'x2' && campo[1].innerHTML === '') {
+		}
+		//Se a posição for a x2 insere a jogada da máquima
+		else if (posicao === 'x2' && campo[1].innerHTML === '') {
 			campo[1].innerHTML = _escolha;
-		} else if (posicao === 'x3' && campo[2].innerHTML === '') {
+		} 
+		//Se a posição for a x3 insere a jogada da máquima
+		else if (posicao === 'x3' && campo[2].innerHTML === '') {
 			campo[2].innerHTML = _escolha;
-		} else if (posicao === 'x4' && campo[3].innerHTML === '') {
+		} 
+		//Se a posição for a x4 insere a jogada da máquima
+		else if (posicao === 'x4' && campo[3].innerHTML === '') {
 			campo[3].innerHTML = _escolha;
-		} else if (posicao === 'x5' && campo[4].innerHTML === '') {
+		} 
+		//Se a posição for a x5 insere a jogada da máquima		
+		else if (posicao === 'x5' && campo[4].innerHTML === '') {
 			campo[4].innerHTML = _escolha;
-		} else if (posicao === 'x6' && campo[5].innerHTML === '') {
+		}
+		//Se a posição for a x6 insere a jogada da máquima
+		else if (posicao === 'x6' && campo[5].innerHTML === '') {
 			campo[5].innerHTML = _escolha;
-		} else if (posicao === 'x7' && campo[6].innerHTML === '') {
+		}
+		//Se a posição for a x7 insere a jogada da máquima
+		else if (posicao === 'x7' && campo[6].innerHTML === '') {
 			campo[6].innerHTML = _escolha;
-		} else if (posicao === 'x8' && campo[7].innerHTML === '') {
+		} 
+		//Se a posição for a x8 insere a jogada da máquima
+		else if (posicao === 'x8' && campo[7].innerHTML === '') {
 			campo[7].innerHTML = _escolha;
-		} else if (posicao === 'x9' && campo[8].innerHTML === '') {
+		} 
+		//Se a posição for a x9 insere a jogada da máquima
+		else if (posicao === 'x9' && campo[8].innerHTML === '') {
 			campo[8].innerHTML = _escolha;
 		}
 	}
@@ -130,15 +166,29 @@ function sorteiaPosicao() {
 	while (true) {
 
 
-		if (aux[numero].innerHTML.length === 0 || aux[numero].innerHTML === '') {
-			aux[numero].innerHTML = 'o';
-			cont++;
-			break;
-		} else {
+		if (_escolha === 'x') {
+			if (aux[numero].innerHTML.length === 0 || aux[numero].innerHTML === '') {
+				aux[numero].innerHTML = 'o';
+				cont++;
+				break;
+			} else {
 
-			numero = Math.floor(Math.random() * 9);
-			console.log(numero);
+				numero = Math.floor(Math.random() * 9);
+				console.log(numero);
 
+			}
+		}
+		else{
+			if (aux[numero].innerHTML.length === 0 || aux[numero].innerHTML === '') {
+				aux[numero].innerHTML = 'x';
+				cont++;
+				break;
+			} else {
+
+				numero = Math.floor(Math.random() * 9);
+				console.log(numero);
+
+			}
 		}
 
 	}
