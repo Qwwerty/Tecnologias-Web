@@ -333,3 +333,18 @@ function createReturn(playReturn) {
 
 	}
 }
+
+
+//Cria o jogo forca
+function createForc(){
+
+	var divForca = document.getElementById("divForca");
+	var imagemForca = document.createElement("img");
+	imagemForca.src = "../images/jogos/forca.png";
+	imagemForca.style.width = "30%";
+	
+
+	divForca.appendChild(imagemForca)
+
+}
+
