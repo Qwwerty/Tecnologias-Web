@@ -83,11 +83,11 @@ function jogar(posicao) {
 		//Se a posição for a x2 insere a joga do usuário 
 		else if (posicao === 'x2' && campo[1].innerHTML === '') {
 			campo[1].innerHTML = _escolha;
-		}
+		} 
 		//Se a posição for a x3 insere a joga do usuário
 		else if (posicao === 'x3' && campo[2].innerHTML === '') {
 			campo[2].innerHTML = _escolha;
-		}
+		} 
 		//Se a posição for a x4 insere a joga do usuário
 		else if (posicao === 'x4' && campo[3].innerHTML === '') {
 			campo[3].innerHTML = _escolha;
@@ -95,11 +95,11 @@ function jogar(posicao) {
 		//Se a posição for a x5 insere a joga do usuário
 		else if (posicao === 'x5' && campo[4].innerHTML === '') {
 			campo[4].innerHTML = _escolha;
-		}
+		} 
 		//Se a posição for a x6 insere a joga do usuário
 		else if (posicao === 'x6' && campo[5].innerHTML === '') {
 			campo[5].innerHTML = _escolha;
-		}
+		} 
 		//Se a posição for a x7 insere a joga do usuário
 		else if (posicao === 'x7' && campo[6].innerHTML === '') {
 			campo[6].innerHTML = _escolha;
@@ -107,13 +107,12 @@ function jogar(posicao) {
 		//Se a posição for a x8 insere a joga do usuário
 		else if (posicao === 'x8' && campo[7].innerHTML === '') {
 			campo[7].innerHTML = _escolha;
-		}
+		} 
 		//Se a posição for a x9 insere a joga do usuário
 		else if (posicao === 'x9' && campo[8].innerHTML === '') {
 			campo[8].innerHTML = _escolha;
 		}
 		sorteiaPosicao();
-		validatorWin();
 	} else {
 		//Se a posição for a x1 insere a jogada da máquima
 		if (posicao === 'x1' && campo[0].innerHTML === '') {
@@ -122,15 +121,15 @@ function jogar(posicao) {
 		//Se a posição for a x2 insere a jogada da máquima
 		else if (posicao === 'x2' && campo[1].innerHTML === '') {
 			campo[1].innerHTML = _escolha;
-		}
+		} 
 		//Se a posição for a x3 insere a jogada da máquima
 		else if (posicao === 'x3' && campo[2].innerHTML === '') {
 			campo[2].innerHTML = _escolha;
-		}
+		} 
 		//Se a posição for a x4 insere a jogada da máquima
 		else if (posicao === 'x4' && campo[3].innerHTML === '') {
 			campo[3].innerHTML = _escolha;
-		}
+		} 
 		//Se a posição for a x5 insere a jogada da máquima		
 		else if (posicao === 'x5' && campo[4].innerHTML === '') {
 			campo[4].innerHTML = _escolha;
@@ -142,194 +141,133 @@ function jogar(posicao) {
 		//Se a posição for a x7 insere a jogada da máquima
 		else if (posicao === 'x7' && campo[6].innerHTML === '') {
 			campo[6].innerHTML = _escolha;
-		}
+		} 
 		//Se a posição for a x8 insere a jogada da máquima
 		else if (posicao === 'x8' && campo[7].innerHTML === '') {
 			campo[7].innerHTML = _escolha;
-		}
+		} 
 		//Se a posição for a x9 insere a jogada da máquima
 		else if (posicao === 'x9' && campo[8].innerHTML === '') {
 			campo[8].innerHTML = _escolha;
 		}
-		validatorWin();
 	}
-
-	//Adiciona que foi feito mais uma jogada
+	//Incrementa uma jogada assim que inseri na tela a escolha do jogador
 	cont++;
 
 }
 
-//SPRTEOA AS Posições da máquina
+//Sortea as jogadas da máquina
 function sorteiaPosicao() {
-	//Pega todos os campos que são utilizados para jogar
+	//Pega todos os campo que são feitos as jogadas
 	var aux = document.getElementsByClassName('campo');
 	//Gera um numero randômico de 0..8
 	var numero = Math.floor(Math.random() * 9);
 
-
 	while (true) {
 
-		//Se escolhar for igual a x e o aux[numero] === 0, então pode inserir a escolha
-		//caso contrário gera outro numero
+		//Se escolha for igual x...
 		if (_escolha === 'x') {
+			//se o aux[numero_random].length for igual a 0 é porque pode inserir pois
+			//está vazio.
 			if (aux[numero].innerHTML.length === 0 || aux[numero].innerHTML === '') {
 				aux[numero].innerHTML = 'o';
-				//Incrementa que foi feito mais uma jogada
+				//Adiciona mais uma jogada feita
 				cont++;
-				//Corta o fluxo assim que joga é validada
+				//Finaliza a jogada da máquina
 				break;
-				//Caso o numero não for valido, é gerado novamente outro numero randômico	
-			} else {
-				numero = Math.floor(Math.random() * 9);
-			}
-		} else {
-			if (aux[numero].innerHTML.length === 0 || aux[numero].innerHTML === '') {
-				aux[numero].innerHTML = 'x';
-				cont++;
-				break;
+			//Caso não for um numero valido ou tenha já algum numero preenchido
+			//terá que ser gerado outro numero randômico
 			} else {
 				numero = Math.floor(Math.random() * 9);
 			}
 		}
-
+		else{
+			//Se a escolha for O
+			//se o aux[numero_random].length for igual a 0 é porque pode inserir pois
+			//está vazio.	
+			if (aux[numero].innerHTML.length === 0 || aux[numero].innerHTML === '') {
+				aux[numero].innerHTML = 'x';
+				//Adiciona mais uma jogada feita
+				cont++;
+				//Finaliza a jogada da máquina
+				break;
+			//Caso não for um numero valido ou tenha já algum numero preenchido
+			//terá que ser gerado outro numero randômico
+			} else {
+				numero = Math.floor(Math.random() * 9);
+			}
+		}
 	}
-
 }
 
-//Valida o vencedor
-function validatorWin() {
+//Valida quem ganhou ou se deu ímpate
+function valid(){
 
 	var campos = document.getElementsByClassName('campo');
-	var retorno = document.getElementById('retorno');
-
-	// 0 - 1 - 2
-	if (campos[0].innerHTML === 'x' && campos[1].innerHTML === 'x' && campos[2].innerHTML === 'x') {
-		createReturn('play1');
+	
+	/*
+		* x - x - x
+		* o - o - o
+		* o - o - o
+		*
+	*/
+	if(campos[0].innerHTML = 'x' && campos[1].innerHTML = 'x' && campos[0].innerHTML = 'x'){
+		alert("Jogador 1 Ganhou!!!");
 	}
-	// 0 - 1 - 2
-	else if (campos[0].innerHTML === 'o' && campos[1].innerHTML === 'o' && campos[2].innerHTML === 'o') {
-		createReturn('play2');
+	/*
+	 * o - o - o
+	 * x - x - x
+	 * x - x - x
+	 *
+	*/
+	else if(campos[0].innerHTML = 'o' && campos[1].innerHTML = 'o' && campos[2].innerHTML = 'o'){
+		alert("Jogador 2 Ganhou!!!");
 	}
-	//3 - 4 - 5
-	else if (campos[3].innerHTML === 'x' && campos[4].innerHTML === 'x' && campos[5].innerHTML === 'x') {
-		createReturn('play1');
+	/*
+	 * x - o - o
+	 * x - o - o
+	 * x - o - o
+	 *
+	*/
+	else if(campos[0].innerHTML = 'x' && campos[3].innerHTML = 'x' && campos[6].innerHTML = 'x'){
+		alert("Jogador 1 Ganhou!!!");
 	}
-	//3 - 4 - 5
-	else if (campos[3].innerHTML === 'o' && campos[4].innerHTML === 'o' && campos[5].innerHTML === 'o') {
-		createReturn('play2');
+	/*
+	 * o - x - x
+	 * o - x - x
+	 * o - x - x
+	 *
+	*/
+	else if(campos[0].innerHTML = 'o' && campos[3].innerHTML = 'o' && campos[6].innerHTML = 'o'){
+		alert("Jogador 2 Ganhou!!!");
 	}
-	//6 - 7 - 8
-	else if (campos[6].innerHTML === 'x' && campos[7].innerHTML === 'x' && campos[8].innerHTML === 'x') {
-		createReturn('play1');
+	/*
+	 * o - x - o
+	 * o - x - o
+	 * o - x - o
+	 *
+	*/
+	else if(campos[1].innerHTML = 'x' && campos[4].innerHTML = 'x' && campos[7].innerHTML = 'x'){
+		alert("Jogador 1 Ganhou!!!");
 	}
-	//6 - 7 - 8
-	else if (campos[6].innerHTML === 'o' && campos[7].innerHTML === 'o' && campos[8].innerHTML === 'o') {
-		createReturn('play2');
+	/*
+	 * x - o - x
+	 * x - o - x
+	 * x - o - x
+	 *
+	*/
+	else if(campos[1].innerHTML = 'o' && campos[4].innerHTML = 'o' && campos[7].innerHTML = 'o'){
+		alert("Jogador 2 Ganhou!!!");
 	}
-	//0 - 3 - 6
-	else if (campos[0].innerHTML === 'x' && campos[3].innerHTML === 'x' && campos[6].innerHTML === 'x') {
-		createReturn('play1');
+	/*
+	 * o - o - x
+	 * o - o - x
+	 * o - o - x
+	 *
+	*/
+	else if(campos[2].innerHTML = 'x' && campos[5].innerHTML = 'x' && campos[8].innerHTML = 'x'){
+		alert("Jogador 1 Ganhou!!!");
 	}
-	//0 - 3 - 6
-	else if (campos[0].innerHTML === 'o' && campos[3].innerHTML === 'o' && campos[6].innerHTML === 'o') {
-		createReturn('play2');
-	}
-	//1 - 4 - 7
-	else if (campos[1].innerHTML === 'x' && campos[4].innerHTML === 'x' && campos[7].innerHTML === 'x') {
-		createReturn('play1');
-	}
-	//1 - 4 - 7
-	else if (campos[1].innerHTML === 'o' && campos[4].innerHTML === 'o' && campos[7].innerHTML === 'o') {
-		createReturn('play2');
-	}
-	//2 - 5 - 8
-	else if (campos[2].innerHTML === 'x' && campos[5].innerHTML === 'x' && campos[8].innerHTML === 'x') {
-		createReturn('play1');
-	}
-	//2 - 5 - 8
-	else if (campos[2].innerHTML === 'o' && campos[5].innerHTML === 'o' && campos[8].innerHTML === 'o') {
-		createReturn('play2');
-	}
-	//0 - 4 - 8
-	else if (campos[0].innerHTML === 'x' && campos[4].innerHTML === 'x' && campos[8].innerHTML === 'x') {
-		createReturn('play1');
-	}
-	//0 - 4 - 8
-	else if (campos[0].innerHTML === 'o' && campos[4].innerHTML === 'o' && campos[8].innerHTML === 'o') {
-		createReturn('play2');
-	}
-	//6 - 4 - 2
-	else if (campos[6].innerHTML === 'x' && campos[4].innerHTML === 'x' && campos[2].innerHTML === 'x') {
-		createReturn('play1');
-	}
-	//6 - 4 - 2
-	else if (campos[6].innerHTML === 'o' && campos[4].innerHTML === 'o' && campos[2].innerHTML === 'o') {
-		createReturn('play2');
-	}
-
-
-
-
-
-
-
-
-
-}
-
-function createReturn(playReturn) {
-
-
-	if (playReturn === 'play1') {
-		var texto = document.createElement('h1');
-		texto.textContent = "Jogador 1 Venceu!!!";
-		texto.style.color = "black";
-		texto.style.textAlign = "center";
-		texto.style.marginTop = "10px";
-		texto.style.marginBottom = "30px";
-
-		var retorno = document.getElementById('retorno');
-		retorno.appendChild(texto);
-		retorno.style.textAlign = "center";
-
-
-		var buttonNovament = document.createElement('a');
-		buttonNovament.setAttribute("href", "../view/jogos.html");
-		buttonNovament.style.backgroundColor = "black";
-		buttonNovament.style.padding = "10px";
-		buttonNovament.style.marginTop = "100px";
-		buttonNovament.style.color = "#fff";
-		buttonNovament.style.textDecoration = "none";
-		buttonNovament.style.width = "200px";
-		buttonNovament.style.height = "100px";
-		buttonNovament.appendChild(document.createTextNode("Jogar Novamente"));
-
-		retorno.appendChild(buttonNovament);
-	} else {
-		var texto = document.createElement('h1');
-		texto.textContent = "Jogador 2 Venceu!!!";
-		texto.style.color = "black";
-		texto.style.textAlign = "center";
-		texto.style.marginTop = "10px";
-		texto.style.marginBottom = "30px";
-
-		var retorno = document.getElementById('retorno');
-		retorno.appendChild(texto);
-		retorno.style.textAlign = "center";
-
-
-		var buttonNovament = document.createElement('a');
-		buttonNovament.setAttribute("href", "../view/jogos.html");
-		buttonNovament.style.backgroundColor = "black";
-		buttonNovament.style.padding = "10px";
-		buttonNovament.style.marginTop = "100px";
-		buttonNovament.style.color = "#fff";
-		buttonNovament.style.textDecoration = "none";
-		buttonNovament.style.width = "200px";
-		buttonNovament.style.height = "100px";
-		buttonNovament.appendChild(document.createTextNode("Jogar Novamente"));
-
-		retorno.appendChild(buttonNovament);
-
-	}
+	
+	
 }
