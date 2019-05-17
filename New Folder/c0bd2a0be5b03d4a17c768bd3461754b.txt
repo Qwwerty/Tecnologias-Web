@@ -1,0 +1,235 @@
+
+						EXERCÍCIO 1
+
+
+CREATE SEQUENCE hangar_sequence
+  START WITH 100
+  INCREMENT BY 1;
+
+
+DECLARE
+
+UltimoValor NUMBER;
+
+BEGIN
+
+insert into hangar(NumHang, CapHang, LocHang)
+values (hangar_sequence.NEXTVAL, 100, 'Juiz de Fora');
+
+
+
+SELECT hangar_sequence.CURRVAL
+INTO UltimoValor
+FROM dual;
+
+
+DBMS_OUTPUT.PUT_LINE(UltimoValor);
+
+insert into hangar(NumHang, CapHang, LocHang)
+values (hangar_sequence.NEXTVAL, 200, 'São Paulo');
+
+
+SELECT hangar_sequence.CURRVAL
+INTO UltimoValor
+FROM dual;
+
+
+DBMS_OUTPUT.PUT_LINE(UltimoValor);
+
+END;
+
+
+
+
+
+						EXERCÍCIO 2
+
+DECLARE
+
+UltimoValor NUMBER;
+
+BEGIN
+
+insert into hangar(NumHang, CapHang, LocHang)
+values (hangar_sequence.NEXTVAL, 200, 'Rio de Janeiro')
+returning NumHang INTO UltimoValor;
+
+
+DBMS_OUTPUT.PUT_LINE(UltimoValor);
+
+insert into hangar(NumHang, CapHang, LocHang)
+values (hangar_sequence.NEXTVAL, 150, 'Campinas')
+returning NumHang INTO UltimoValor;
+
+
+DBMS_OUTPUT.PUT_LINE(UltimoValor);
+
+END;
+
+
+
+
+
+
+
+						EXERCÍCIO 3
+DECLARE
+
+TYPE TipoNumerosRecord IS RECORD(
+    numhang hangar.numhang%TYPE,
+    num_linha NUMBER
+);    
+
+TYPE Tipo_Numeros IS TABLE OF TipoNumerosRecord
+INDEX BY BINARY_INTEGER;
+
+Numeros Tipo_Numeros;
+
+BEGIN
+
+	SELECT numhang, ROWNUM
+	BULK COLLECT
+        INTO Numeros
+        FROM Hangar;
+  
+        DBMS_OUTPUT.PUT_LINE(Numeros.COUNT || ' linhas recuperadas.');
+
+        FOR Contador IN 1..Numeros.COUNT LOOP
+          DBMS_OUTPUT.PUT_LINE(Numeros(Contador).numhang || '    '  || Numeros(Contador).num_linha);
+        END LOOP;
+END;
+
+
+
+
+
+						
+
+						EXERCÍCIO 4
+
+
+DECLARE
+
+
+CURSOR c_Proprietarios IS
+       SELECT DISTINCT P.NumProp, C.NomeCorp AS NOMEPROPRIETARIO
+       FROM Possui P, Corporacao C
+       WHERE P.NumProp = C.NumProp
+       AND P.DataV IS NULL
+
+       UNION
+
+       SELECT DISTINCT  P.NumProp, O.NomePes AS NOMEPROPRIETARIO
+       FROM Possui P, Pessoa O
+       WHERE P.NumProp = O.NumProp
+       AND P.DataV IS NULL
+       ORDER BY NOMEPROPRIETARIO;
+
+
+v_Proprietarios c_Proprietarios%ROWTYPE;
+
+
+-------------
+
+CURSOR c_NRegAviProp IS
+       SELECT P.NRegAvi
+       FROM Possui P, Armazenado_em Z
+       WHERE P.NumProp = v_Proprietarios.NumProp
+       AND P.NRegAvi = Z.NRegAvi
+       AND P.DataV IS NULL
+       AND Z.DataFim IS NULL;
+
+
+v_NRegAviProp c_NRegAviProp%ROWTYPE;
+
+
+-------------
+
+
+TYPE Tipo_Aviao_Proprietarios IS RECORD(
+
+	NRegAvi AVIAO.NRegAvi%TYPE,
+	NumProps NUMBER
+);
+
+TYPE Tabela_Aviao_Proprietarios IS TABLE OF Tipo_Aviao_Proprietarios
+INDEX BY BINARY_INTEGER;
+
+
+v_AviaoProps Tabela_Aviao_Proprietarios;
+
+-------------
+
+
+TYPE Tabela_Aviao_MediaAlugueis IS TABLE OF ARMAZENADO_EM.ValAlu%TYPE
+INDEX BY BINARY_INTEGER;
+
+v_AviaoMedias Tabela_Aviao_MediaAlugueis;
+-------------
+
+
+v_AluguelAviaoLOOP ARMAZENADO_EM.ValAlu%TYPE;
+SomaAlu ARMAZENADO_EM.ValAlu%TYPE;
+
+
+
+BEGIN
+    
+
+       SELECT P.NRegAvi, COUNT(*) AS NumProps
+       BULK COLLECT 
+       INTO v_AviaoProps
+       FROM Armazenado_em Z, Possui P
+       WHERE Z.NRegAvi = P.NRegAvi
+       AND P.DataV IS NULL
+       AND Z.DataFim IS NULL
+       GROUP BY P.NRegAvi;
+       
+
+       FOR Contador IN 1..v_AviaoProps.COUNT LOOP
+       
+          SELECT ValAlu
+          INTO v_AluguelAviaoLOOP
+          FROM Armazenado_em
+          WHERE DataFim IS NULL
+	  AND NRegAvi = v_AviaoProps(Contador).NRegAvi;
+
+
+          v_AviaoMedias(v_AviaoProps(Contador).NRegAvi) := (v_AluguelAviaoLOOP/V_AviaoProps(Contador).NumProps);
+         
+       END LOOP;
+
+
+       OPEN c_Proprietarios;
+          
+       LOOP
+  
+           FETCH c_Proprietarios INTO v_Proprietarios;
+
+           EXIT WHEN c_Proprietarios%NOTFOUND;
+
+           SomaAlu := 0;
+               
+           OPEN c_NRegAviProp;
+
+           LOOP
+
+                 
+               FETCH c_NRegAviProp INTO v_NRegAviProp;
+
+               EXIT WHEN c_NRegAviProp%NOTFOUND;
+
+               SomaAlu := SomaAlu + v_AviaoMedias(v_NRegAviProp.NRegAvi);
+
+
+	   END LOOP;
+	  
+           CLOSE c_NRegAviProp;
+             
+           DBMS_OUTPUT.PUT_LINE('Proprietario: ' || v_Proprietarios.NomeProprietario || '    Total mensal: ' || SomaAlu);
+
+       END LOOP;
+		
+       CLOSE c_Proprietarios;
+
+END;

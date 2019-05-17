@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/jogos.css">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Frijole" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Simulate a smartphone / tablet -->
+    <div class="mobile-container">
+
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a href="#home" class="active"><img src="../images/d00f8235-cc94-473f-8e36-f76cfa26a76c.png"></a>
+            <div id="myLinks">
+                <a href="../index.html">Home</a>
+                <a href="#contact">Sobre</a>
+                <a href="#about">Jogos</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <div id="conteudo">
+
+            <!--Jogo 1-->
+            <div onclick="carregar('jogo1.html')" class="jogo">
+                <img  id="jogo1" src="../images/jogos/cc430f39ed44136b70d59ffa320ef10d.png">
+            </div>
+
+            <!--Jogo 2-->
+            <div onclick="carregar('jogo2.html')" class="jogo">
+                <img id="jogo2" src="../images/jogos/f3023a2ed33d99753dcaa5c202733fc1.jpg"">
+            </div>
+
+            <!--Jogo 3-->
+            <div onclick="carregar('jogo3.html')" class=" jogo">
+                <img id="jogo3" src="../images/jogos/forca.jpg">
+            </div>
+
+            <!--Jogo 4-->
+            <div onclick="carregar('escolha.html')" class="jogo">
+                <img id="jogo4" src="../images/jogos/200px-Tic_Tac_Toe.png">
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <h3>Rhalf Souza</h3>
+    </div>
+    <!-- End smartphone / tablet look -->
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+    <script src="../javascript/jogo.js"></script>
+    <script type="text/javascript" src="../javascript/ajax.js"></script>
+
+</body>
+
+</html>

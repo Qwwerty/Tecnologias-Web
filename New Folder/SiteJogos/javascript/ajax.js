@@ -328,102 +328,49 @@ function createReturn(playReturn) {
 		buttonNovament.style.width = "200px";
 		buttonNovament.style.height = "100px";
 		buttonNovament.appendChild(document.createTextNode("Jogar Novamente"));
-		retorno.appendChild(buttonNovament);
 
+		retorno.appendChild(buttonNovament);
 
 	}
 }
 
-var vector = [];
-var g_word;
-
 
 //Cria o jogo forca
-function createForc(categoria) {
+function createForc(){
 
 	var divForca = document.getElementById("divForca");
 	divForca.innerHTML = '';
 
-
 	var imagemForca = document.createElement("img");
 	imagemForca.src = "../images/jogos/forca.png";
 	imagemForca.style.width = "30%";
-	imagemForca.style.marginLeft = "125px";
+	
 
-
-	divForca.appendChild(imagemForca);
-
-	var word = wordsForc('ANIMAIS');
-	g_word = word;
-
-
-
-	for (let i = 0; i < word.length; i++) {
-
-		vector[i] = "______";
-
-		var traco = document.createElement('h2');
-		traco.appendChild(document.createTextNode("______"));
-		traco.style.color = "black";
-		traco.style.fontSize = "36px";
-		traco.style.width = "100px;";
-		traco.style.marginLeft = "120px";
-		divForca.appendChild(traco);
-
-	}
-
-	//DIV INPUT E BUTTON
-	var divEnvio = document.createElement('div');
-	divEnvio.style.marginTop = "30px";
-	divEnvio.style.display = "flex";
-	divEnvio.style.justifyContent = "space-around";
-
-	var divInput = document.createElement('div');
-	var inputLetra = document.createElement('input');
-	inputLetra.style.fontSize = "36px";
-	inputLetra.style.width = "100px";
-	inputLetra.style.height = "50px";
-	inputLetra.setAttribute('id', 'inputLet');
-
-	divInput.appendChild(inputLetra);
-
-	var divButton = document.createElement('div');
-	var buttonLetra = document.createElement('button');
-	buttonLetra.innerHTML = "INSERIR";
-	buttonLetra.style.width = "100px";
-	buttonLetra.style.height = "50px";
-	buttonLetra.style.backgroundColor = "black";
-	buttonLetra.style.color = "#fff";
-	buttonLetra.setAttribute('onclick', 'adicionaLetra()');
-	divButton.appendChild(buttonLetra);
-
-
-	divEnvio.appendChild(divButton);
-	divEnvio.appendChild(divInput);
-	divForca.appendChild(divEnvio);
-
+	divForca.appendChild(imagemForca)
 
 }
 
 //Sorteia a palavra de acordo com a categoria que usuário quiser jogar
-function wordsForc(word) {
+function wordsForc(word){
 
 	var wordsAnimais = ['CACHORRO', 'GATO', 'PEIXE', 'CAVALO', 'LEÃO', 'RAPOSA', 'TARTARUGA'];
 	var wordsEscola = ['CANETA', 'CADERNO', 'COLA', 'TESOURA', 'LAPIS', 'MOCHILA'];
 	var wordsObjetoDomestico = ['CADEIRA', 'ESTANTE', 'CAMA', 'SOFÁ', 'GELADEIRA', 'FOGÃO'];
 
-	if (word === 'ANIMAIS') {
+	if(word === 'ANIMAIS'){
 
 		let aux = Math.floor(Math.random() * (wordsAnimais.length - 1));
 		return wordsAnimais[aux];
 
-	} else if (word === 'ESCOLA') {
+	}
+	else if(word === 'ESCOLA'){
 
 		let aux = Math.floor(Math.random() * (wordsEscola.length - 1));
 		return wordsEscola[aux];
 
-	} else if (word === "DOMESTICO") {
-
+	}
+	else if(word === "DOMESTICO"){
+		
 		let aux = Math.floor(Math.random() * (wordsObjetoDomestico.length - 1));
 		return wordsObjetoDomestico[aux];
 
@@ -432,87 +379,3 @@ function wordsForc(word) {
 
 }
 
-
-function adicionaLetra() {
-
-	var inputWord = document.getElementById("inputLet").value;
-	var aux = g_word.split('');
-
-
-	for (let i = 0; i < g_word.length; i++) {
-
-		if (inputWord === aux[i]) {
-			vector[i] = inputWord;
-		}
-
-	}
-
-	var divForca = document.getElementById("divForca");
-	divForca.innerHTML = '';
-	var divForca = document.getElementById("divForca");
-	divForca.innerHTML = '';
-
-
-	var imagemForca = document.createElement("img");
-	imagemForca.src = "../images/jogos/forca.png";
-	imagemForca.style.width = "30%";
-	imagemForca.style.marginLeft = "125px";
-
-
-	divForca.appendChild(imagemForca);
-
-
-
-	for (let i = 0; i < g_word.length; i++) {
-
-
-
-		var traco = document.createElement('h2');
-		traco.appendChild(document.createTextNode("" + vector[i]));
-		traco.style.color = "black";
-		traco.style.fontSize = "36px";
-		traco.style.width = "100px;";
-		traco.style.marginLeft = "120px";
-		traco.style.textDecoration = "underline";
-		divForca.appendChild(traco);
-
-		//DIV INPUT E BUTTON
-		var divEnvio = document.createElement('div');
-		divEnvio.style.marginTop = "30px";
-		divEnvio.style.display = "flex";
-		divEnvio.style.justifyContent = "space-around";
-
-
-	}
-
-	var divInput = document.createElement('div');
-	var inputLetra = document.createElement('input');
-	inputLetra.style.fontSize = "36px";
-	inputLetra.style.width = "100px";
-	inputLetra.style.height = "50px";
-	inputLetra.setAttribute('id', 'inputLet');
-
-	divInput.appendChild(inputLetra);
-
-	var divButton = document.createElement('div');
-	var buttonLetra = document.createElement('button');
-	buttonLetra.innerHTML = "INSERIR";
-	buttonLetra.style.width = "100px";
-	buttonLetra.style.height = "50px";
-	buttonLetra.style.backgroundColor = "black";
-	buttonLetra.style.color = "#fff";
-	buttonLetra.setAttribute('onclick', 'adicionaLetra()');
-	divButton.appendChild(buttonLetra);
-
-
-	divEnvio.appendChild(divButton);
-	divEnvio.appendChild(divInput);
-	divForca.appendChild(divEnvio);
-
-
-
-
-
-
-
-}
