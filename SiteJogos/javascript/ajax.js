@@ -336,6 +336,8 @@ function createReturn(playReturn) {
 
 var vector = [];
 var g_word;
+var tentativa = 0;
+var status = 0;
 
 
 //Cria o jogo forca
@@ -397,6 +399,7 @@ function createForc(categoria) {
 	inputLetra.style.fontSize = "36px";
 	inputLetra.style.width = "100px";
 	inputLetra.style.height = "50px";
+	inputLetra.style.marginLeft = "10px";
 	inputLetra.setAttribute('id', 'inputLet');
 
 	divInput.appendChild(inputLetra);
@@ -449,6 +452,8 @@ function wordsForc(word) {
 
 function adicionaLetra() {
 
+	status = 0;
+
 	var inputWord = document.getElementById("inputLet").value;
 	var aux = g_word.split('');
 
@@ -457,8 +462,13 @@ function adicionaLetra() {
 
 		if (inputWord === aux[i]) {
 			vector[i] = inputWord;
+			status = 1;
 		}
 
+	}
+
+	if(status == 0){
+		tentativa++;
 	}
 
 	var divForca = document.getElementById("divForca");
@@ -529,6 +539,30 @@ function adicionaLetra() {
 	divEnvio.appendChild(divButton);
 	divEnvio.appendChild(divInput);
 	divForca.appendChild(divEnvio);
+
+	if(tentativa === 3){
+		var gameOver = document.createElement("h2");
+		gameOver.innerText = "VOCÊ PERDEU";
+		gameOver.style.fontSize = "46px";
+		gameOver.style.color = "black";
+		gameOver.style.marginTop = "50px";
+		divForca.appendChild(gameOver);
+		divForca.removeChild(divEnvio);
+
+		var retornoForca = document.createElement('a');
+		retornoForca.setAttribute("href", "../view/jogos.html");
+		retornoForca.style.backgroundColor = "black";
+		retornoForca.style.padding = "10px";
+		retornoForca.style.marginTop = "20px";
+		retornoForca.style.color = "#fff";
+		retornoForca.style.textDecoration = "none";
+		retornoForca.style.width = "200px";
+		retornoForca.style.height = "100px";
+		retornoForca.style.textAlign = "center";
+		retornoForca.appendChild(document.createTextNode("Jogar Novamente"));
+		divForca.appendChild(retornoForca);
+
+	}
 
 
 
