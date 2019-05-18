@@ -342,16 +342,27 @@ var g_word;
 function createForc(categoria) {
 
 	var divForca = document.getElementById("divForca");
+	divForca.style.width = "100%";
+	divForca.style.marginTop = "100px";
+	
+	divForca.style.display = "flex";
+	divForca.style.justifyContent = "space-around";
+	divForca.style.flexWrap = "wrap";
 	divForca.innerHTML = '';
 
 
-	var imagemForca = document.createElement("img");
+	//Div Img e imagem da forca
+	//================================================
+	var divImgForca = document.createElement('div');
+	divImgForca.style.width = "100px";
+	var imagemForca = document.createElement('img');
 	imagemForca.src = "../images/jogos/forca.png";
-	imagemForca.style.width = "30%";
-	imagemForca.style.marginLeft = "125px";
+	imagemForca.style.width = "100%";
+	imagemForca.style.marginLeft = "10px";
 
-
-	divForca.appendChild(imagemForca);
+	divImgForca.appendChild(imagemForca);
+	divForca.appendChild(divImgForca);
+	//================================================
 
 	var word = wordsForc('ANIMAIS');
 	g_word = word;
@@ -360,15 +371,18 @@ function createForc(categoria) {
 
 	for (let i = 0; i < word.length; i++) {
 
-		vector[i] = "______";
+		vector[i] = "_";
 
+		var divTraco = document.createElement('div');
 		var traco = document.createElement('h2');
-		traco.appendChild(document.createTextNode("______"));
+		traco.appendChild(document.createTextNode("_"));
 		traco.style.color = "black";
-		traco.style.fontSize = "36px";
-		traco.style.width = "100px;";
-		traco.style.marginLeft = "120px";
-		divForca.appendChild(traco);
+		traco.style.fontSize = "16px";
+		traco.style.width = "20px;";
+		traco.style.marginTop = "90px";
+		traco.style.marginLeft = "10px";
+		divTraco.appendChild(traco);
+		divForca.appendChild(divTraco);
 
 	}
 
@@ -448,33 +462,40 @@ function adicionaLetra() {
 	}
 
 	var divForca = document.getElementById("divForca");
-	divForca.innerHTML = '';
-	var divForca = document.getElementById("divForca");
+	divForca.style.width = "100%";
+	divForca.style.display = "flex";
+	divForca.style.justifyContent = "space-around";
+	divForca.style.flexWrap = "wrap";
 	divForca.innerHTML = '';
 
-
-	var imagemForca = document.createElement("img");
+	
+	//Div Img e imagem da forca
+	//================================================
+	var divImgForca = document.createElement('div');
+	divImgForca.style.width = "100px";
+	var imagemForca = document.createElement('img');
 	imagemForca.src = "../images/jogos/forca.png";
-	imagemForca.style.width = "30%";
-	imagemForca.style.marginLeft = "125px";
+	imagemForca.style.width = "100%";
+	imagemForca.style.marginLeft = "10px";
 
-
-	divForca.appendChild(imagemForca);
-
+	divImgForca.appendChild(imagemForca);
+	divForca.appendChild(divImgForca);
+	//================================================
 
 
 	for (let i = 0; i < g_word.length; i++) {
 
 
-
+		var divTraco = document.createElement('div');
 		var traco = document.createElement('h2');
 		traco.appendChild(document.createTextNode("" + vector[i]));
 		traco.style.color = "black";
-		traco.style.fontSize = "36px";
-		traco.style.width = "100px;";
-		traco.style.marginLeft = "120px";
-		traco.style.textDecoration = "underline";
-		divForca.appendChild(traco);
+		traco.style.fontSize = "16px";
+		traco.style.width = "20px;";
+		traco.style.marginTop = "90px";
+		traco.style.marginLeft = "10px";
+		divTraco.appendChild(traco);
+		divForca.appendChild(divTraco);
 
 		//DIV INPUT E BUTTON
 		var divEnvio = document.createElement('div');
