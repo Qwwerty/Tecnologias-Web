@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="../javascript/jquery.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/estilo.css'>
+</head>
+
+<body>
+
+    <div id="conteudo">
+            <h1 id="titulo">Jquery</h1>
+            <p id="p1">jQuery</p>
+    </div>
+
+    
+    <script>
+            $(document).ready(function () {
+                $("#titulo").hover(function () {
+                        $("#p1").text("Entrou no Título");
+                    },
+                    function () {
+                        $("#p1").text("Saiu do Título");
+                    });
+            });
+    </script>
+
+</body>
+
+</html>

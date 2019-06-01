@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/estilo.css'>
+    <script src="javascript/jquery.js"></script>
+</head>
+
+<body>
+    <div class="pai">
+        <nav>
+            <ul>
+                <li><a onclick="carregar('exemplos/exemplo1.html')" href="#">Exemplo 1 – .hover</a></li>
+                <li><a href="#">Exemplo 2 – .mousedown() / .mouseup()</a></li>
+                <li><a href="#">Exemplo 3 - .mouseenter() / .mouseleave()</a></li>
+                <li><a href="#">Exemplo 4 - .mouseover()</a></li>
+                <li><a href="#">Exemplo 5 - .attr() – recupera</a></li>
+                <li><a href="#">Exemplo 6 - .attr()– altera</a></li>
+                <li><a href="#">Exemplo 7 - .addClass()</a></li>
+                <li><a href="#">Exemplo 8 - .removeClass()</a></li>
+                <li><a href="#">Exemplo 9 - .text() .html() .val()</a></li>
+                <li><a href="#">Exemplo 10 - .replaceWith()</a></li>
+                <li><a href="#">Exemplo 11 - .remove()</a></li>
+                <li><a href="#">Exemplo 12 - .keydown() / . keyup()</a></li>
+                <li><a href="#">Exemplo 13 - fadeIn, fadeOut, fadeToggle</a></li>
+                <li><a href="#">Exemplo 14 - slideDown, slideUp e slideToggle</a></li>
+                <li><a href="#">Exemplo 15 - .keypress()</a></li>
+            </ul>
+        </nav>
+        <div id="conteudo">
+            
+        </div>
+    </div>
+
+    <script src="javascript/ajax.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#titulo").hover(function () {
+                    $("#p1").text("Entrou no Título");
+                },
+                function () {
+                    $("#p1").text("Saiu do Título");
+                });
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+*{
+    margin: 0px;
+    border: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    color: #fff;
+}
+
+nav{
+    width: 30%;
+    height: 850px;
+    background-color: rgb(0, 0, 0);
+}
+
+nav ul li{
+    margin-bottom: 30px;
+}
+
+nav ul li a{
+    text-decoration: none;
+}
+
+
+nav ul li a:hover{
+    transition-delay: 0.1s;
+    color: rgb(54, 49, 49);
+}
+
+#conteudo{
+    width: 70%;
+    height: 850px;
+    background-color: tan;
+    text-align: center;
+}
+
+.pai{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
