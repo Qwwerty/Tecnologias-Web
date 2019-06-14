@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".btn1").click(function(){
+    $("p").slideUp();
+  });
+  $(".btn2").click(function(){
+    $("p").slideDown();
+  });
+});
+</script>
+</head>
+<body>
+
+<p>Nosso classico paragrafo de exemplo</p>
+
+<button class="btn1">Clique aqui para esconder o paragrado</button>
+<button class="btn2">Clique aqui para revela-lo</button>
+
+</body>
+</html>

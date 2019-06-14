@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("input").keydown(function(){
+    $("input").css("background-color", "pink");
+  });
+  $("input").keyup(function(){
+    $("input").css("background-color", "red");
+  });
+});
+</script>
+</head>
+<body>
+
+Digite seu nome: <input type="text">
+
+<p>Digite seu nome e veja o que acontece enquanto as teclas são pressionadas.</p>
+
+</body>
+</html>

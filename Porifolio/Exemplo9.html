@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#btn1").click(function(){
+    $("#test1").text("Faz a prova Fechada");
+  });
+  $("#btn2").click(function(){
+    $("#test2").html("<b>Nos precisamos dela assim</b>");
+  });
+  $("#btn3").click(function(){
+    $("#test3").val("Por favor?");
+  });
+});
+</script>
+</head>
+<body>
+
+<p id="test1">Aqui é um paragrafo que será alterado.</p>
+<p id="test2">Aqui é outro.</p>
+
+<p>Campo de entrada <input type="text" id="test3" value="Adoramos seu cabelo!"></p>
+
+<button id="btn1">Insira o Text</button>
+<button id="btn2">Insira o HTML</button>
+<button id="btn3">Insira o Value</button>
+
+</body>
+</html>

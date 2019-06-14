@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p:first").addClass("introducao");
+  });
+});
+</script>
+<style>
+.introducao {
+  font-size: 150%;
+  color: red;
+}
+</style>
+</head>
+<body>
+
+<h1>Veja :</h1>
+
+<p>Esse é o primeiro paragrafo que será modificado@!</p>
+<p>Esse é outro paragrafo, que nao sofre modificaçoes :) </p>
+
+<button>Clique aqui para adicionar uma classe 
+    estilizada para o primeiro elemento</button>
+
+</body>
+</html>

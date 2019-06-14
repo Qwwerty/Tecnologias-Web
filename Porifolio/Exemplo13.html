@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".btn1").click(function(){
+    $("p").fadeOut();
+  });
+  $(".btn2").click(function(){
+    $("p").fadeIn();
+  });
+});
+</script>
+</head>
+<body>
+
+<p>Se liga nesse paragrafo</p>
+
+<button class="btn1">Clicando aqui, ele some</button>
+<button class="btn2">Mas se clicar aqui, ele volta</button>
+
+</body>
+</html>
