@@ -1,0 +1,87 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.7;
+}
+a:hover{
+    opacity: 1;
+    color: #fff;
+}
+nav ul{
+    /* Iniciol o flex */
+    display: flex;
+    /* Vai ser tudo numa linha */
+    /* se tive pequeno vai quebrar a linha (wrap) */
+    flex-flow: row wrap;
+    /* Espaçamento entre eles */
+    justify-content: space-between;
+    /* Ficara alinhado no centro */
+    align-content: stretch;
+
+    position: absolute;
+    top: 0px;
+    background-color: #ff09ca;
+    color: #fff ;
+    width: 100%;
+}
+nav li a {
+    color: #fff ;
+}
+nav li{
+    margin: 15px 20px;
+}
+
+.slide {
+    background-image: url(../image/slide.jpeg);
+    background-size: cover;
+    min-height: 95vh;
+    color: #f54ed1;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.slide h1{
+    font-size: 3.2rem;
+    margin: 15px;
+}
+.slide h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+.slide a {
+    background-color: #ff09ca;
+    border-radius: 4px;
+    color: #fff ;
+    padding: 20px 50px;
+    opacity: 0.9;
+}
+.slide a:hover {opacity: 1; }
+
+.fundo {
+    background-color: #fff;
+    padding: 5%;
+}
+.cor {
+    background-color: #ff09ca;
+    color: #fff ;
+}
+.cor:hover{
+    background-color: #fff;
+    color: #ff09ca ;
+}
+
+
