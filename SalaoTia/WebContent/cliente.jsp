@@ -31,7 +31,7 @@
 		<ul>
 			<li><a href="index.jsp">Salão da Tia Anamelia</a></li>
 			<li><a href="cliente.jsp">Cliente</a> &nbsp;&nbsp;&nbsp;&nbsp; <a
-				href="produtos.jsp">Produtos</a></li>
+				href="salvarProduto?acao=atualizar">Produtos</a></li>
 
 		</ul>
 	</nav>
